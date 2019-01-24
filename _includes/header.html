@@ -1,16 +1,38 @@
-<aside>
-	<div class="container">
-		<nav>
-			<ul>
-				{% for page in site.pages %} {% if page.title %}
-				<li><a href="{{ page.url | prepend: site.baseurl }}">{{ page.title }}</a></li>
-				{% endif %} {% endfor %}
-				<li><a href="{{ "blog" | prepend: site.baseurl }}">Blog</a></li>
-			</ul>
-		</nav>
-	</div>
-</aside>
+<div id="mySidenav" class="sidenav">
+  <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+  <img src="{{ site.baseurl }}/assets/img/Logo_garys_png.png" height="150px" style="padding: 8px 8px 8px 32px;">
 
-<header>
-	<h1><a href="{{ site.baseurl }}">{{ site.title }}</a></h1>
-</header>
+	<a class='router' href="{{ site.baseurl }}/" onclick="closeNav()"><i class="fa fa-home"></i> Home</a>
+  <a class='router' href="{{ site.baseurl }}/about" onclick="closeNav()"><i class="fa fa-address-card"></i> About</a>
+  <a class='router' href="{{ site.baseurl }}/shop"><i class="fa fa-shopping-cart"></i> Shop</a>
+  <a class='router' href="{{ site.baseurl }}/blog" onclick="closeNav()"><i class="fa fa-edit"></i> Blog</a>
+  <a class='router' href="{{ site.baseurl }}/gallery" onclick="closeNav()"><i class="fa fa-camera"></i> Gallery</a>
+
+  <div style="display: flex;margin-top: 55px;">
+    <a href="http://facebook.com/"><i class="fa fa-facebook"></i></a>
+    <a href="http://twitter.com/"><i class="fa fa-twitter"></i></a>
+    <a href="http://instagram.com/"><i class="fa fa-instagram"></i></a>
+  </div>
+</div>
+
+<div id='hamburger'>
+  <span onclick="openNav()" style="text-align: right;">tools
+      <i class="fa fa-bars" style="-webkit-transform: rotate(90deg);color: #8c9c4e;padding-top: 7px;">
+      </i>
+  </span>
+  <span style="text-align: left;margin-bottom: 20px; cursor: context-menu;">2018</span>
+</div>
+
+<script>
+
+	function openNav() {
+	      document.getElementById("mySidenav").style.width = "200px";
+	      document.getElementById("main").style.marginLeft = "200px";
+	  }
+
+	 function closeNav(){
+	      document.getElementById("mySidenav").style.width = "0";
+	      document.getElementById("main").style.marginLeft= "55px";
+	  }
+
+</script>

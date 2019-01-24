@@ -1,0 +1,154 @@
+---
+layout: default
+---
+
+<div class="row">
+    <h1 class="gallery-title">Gallery</h1>
+
+<div id="filters" align="left">
+    <button class="btn btn-default filter-button" data-filter="all">All</button>
+    <button class="btn btn-default filter-button" data-filter="nature">Nature</button>
+    <button class="btn btn-default filter-button" data-filter="work">Work</button>
+</div>
+
+<div class="row" id='all1'>
+  <div class="column filter nature" data-name="5">
+  <div class="content">
+    <img data-id="1" src="https://www.w3schools.com/w3images/mountains.jpg" alt="Mountains" style="width:100%" onclick="photo(event)">
+    <h4>Mountains</h4>
+    <p>Lorem ipsum dolor..</p>
+  </div>
+  </div>
+  <div class="column filter nature" data-name="6">
+  <div class="content">
+  <img data-id="2" src="https://www.w3schools.com/w3images/lights.jpg" alt="Lights" style="width:100%" onclick="photo(event)">
+    <h4>Lights</h4>
+    <p>Lorem ipsum dolor..</p>
+  </div>
+  </div>
+  <div class="column filter nature" data-name="1">
+  <div class="content">
+  <img src="https://www.w3schools.com/w3images/nature.jpg" alt="Nature" style="width:100%" onclick="photo(event)">
+    <h4>Forest</h4>
+    <p>Lorem ipsum dolor..</p>
+  </div>
+  </div>
+
+  <div class="column filter nature" data-name="3">
+  <div class="content">
+    <img src="https://www.w3schools.com/w3images/cars1.jpg" alt="Car" style="width:100%" onclick="photo(event)">
+    <h4>Retro</h4>
+    <p>Lorem ipsum dolor..</p>
+  </div>
+  </div>
+  <div class="column filter work" data-name="2">
+  <div class="content">
+  <img src="https://www.w3schools.com/w3images/cars2.jpg" alt="Car" style="width:100%" onclick="photo(event)">
+    <h4>Fast</h4>
+    <p>Lorem ipsum dolor..</p>
+  </div>
+  </div>
+  <div class="column filter work" data-name="4">
+  <div class="content">
+  <img src="https://www.w3schools.com/w3images/cars3.jpg" alt="Car" style="width:100%" onclick="photo(event)">
+    <h4>Classic</h4>
+    <p>Lorem ipsum dolor..</p>
+  </div>
+  </div>
+
+  <div class="column filter work" data-name="10">
+  <div class="content">
+    <img src="https://www.w3schools.com/w3images/people1.jpg" alt="Car" style="width:100%" onclick="photo(event)">
+    <h4>Girl</h4>
+    <p>Lorem ipsum dolor..</p>
+  </div>
+  </div>
+  <div class="column filter work" data-name="11">
+  <div class="content">
+  <img src="https://www.w3schools.com/w3images/people2.jpg" alt="Car" style="width:100%" onclick="photo(event)">
+    <h4>Man</h4>
+    <p>Lorem ipsum dolor..</p>
+  </div>
+  </div>
+  <div class="column filter work" data-name="7">
+  <div class="content">
+  <img src="https://www.w3schools.com/w3images/people3.jpg" alt="Car" style="width:100%" onclick="photo(event)">
+    <h4>Woman</h4>
+    <p>Lorem ipsum dolor..</p>
+  </div>
+  </div>
+  </div>
+
+</div>
+
+<div id="myModal" class="modal">
+  <a class="close" onclick="close1()">&times;</a>
+  <img class="modal-content img-responsive" id="imgModal">
+  <a id='prev' class="prev" onclick="next(2)">&#10094;</a>
+  <a id='next' class="next" onclick="next(1)">&#10095;</a>
+</div>
+
+<script>
+  $('html, body').css('overflow', 'auto');
+
+  function photo(event){
+      var modal = document.getElementById('myModal');
+      var modalImg = document.getElementById("imgModal");
+      modal.style.display = "block";
+      modalImg.src = event.currentTarget.src;
+    }
+
+  function next(digit){
+        var modal = document.getElementById('myModal');
+        var modalImg = document.getElementById("imgModal");
+        var url = $('#myModal').find('img').attr('src');
+        modal.style.display = "block";
+        var images = $('#all1').find('img:visible').map(function() { return this.src; }).get();
+        var ind = images.findIndex(x => x==url);
+        if (digit==1){
+          ind=ind+1;
+          if (ind==images.length){
+            ind=0;
+          }
+        }
+        if (digit==2){
+          ind=ind-1;
+          if (ind==-1){
+            ind=(images.length)-1;
+          }
+        }
+        modalImg.src = images[ind];
+  }
+
+  function close1(){
+          var modal = document.getElementById('myModal');
+          modal.style.display = "none";
+  }
+
+    $(document).keydown(function(e){
+              if (e.which == 37) {
+                  //$( "#prev" ).click();
+              }
+    });
+
+    $(document).ready(function(){
+
+        $(".filter-button").click(function(){
+              var value = $(this).attr('data-filter');
+              if(value == "all")
+              {
+                $('.filter').show('fast');
+                $(".filter-button").not('.'+value).css('background-color','#8c9c4e');
+                $(this).css('background-color','#86755d');
+              }
+              else
+              {
+                  $(".filter").not('.'+value).hide('slow');
+                  $(".filter-button").not('.'+value).css('background-color','#8c9c4e');
+                  $('.filter').filter('.'+value).show('slow');
+                  $(this).css('background-color','#86755d');
+              }
+        });
+    });
+
+</script>
