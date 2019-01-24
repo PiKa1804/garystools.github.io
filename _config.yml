@@ -21,3 +21,10 @@ exclude:
   - Gemfile.lock
 sass:
     sass_dir: _sass
+
+jekyll_admin:
+  hidden_links:
+    - pages
+    - staticfiles
+    - datafiles
+    - configuration
