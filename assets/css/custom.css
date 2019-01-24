@@ -230,7 +230,7 @@ body {
     left: 0;
 }
 
-#first_half h1,h2,p {
+h2#first_half h1,p {
   color: black;
   margin: 10px 35px;
   text-align: left;
@@ -259,6 +259,7 @@ body {
 .column{
   width: 32%;
   margin: 2px;
+  float: left;
 }
 .gallery-title
 {
