@@ -12,72 +12,28 @@ layout: default
 </div>
 
 <div class="row" id='all1'>
-  <div class="column filter nature" data-name="5">
-  <div class="content">
-    <img data-id="1" src="https://www.w3schools.com/w3images/mountains.jpg" alt="Mountains" style="width:100%" onclick="photo(event)">
-    <h4>Mountains</h4>
-    <p style="margin: 0px">Lorem ipsum dolor..</p>
-  </div>
-  </div>
-  <div class="column filter nature" data-name="6">
-  <div class="content">
-  <img data-id="2" src="https://www.w3schools.com/w3images/lights.jpg" alt="Lights" style="width:100%" onclick="photo(event)">
-    <h4>Lights</h4>
-    <p style="margin: 0px">Lorem ipsum dolor..</p>
-  </div>
-  </div>
-  <div class="column filter nature" data-name="1">
-  <div class="content">
-  <img src="https://www.w3schools.com/w3images/nature.jpg" alt="Nature" style="width:100%" onclick="photo(event)">
-    <h4>Forest</h4>
-    <p style="margin: 0px">Lorem ipsum dolor..</p>
-  </div>
-  </div>
 
-  <div class="column filter nature" data-name="3">
-  <div class="content">
-    <img src="https://www.w3schools.com/w3images/cars1.jpg" alt="Car" style="width:100%" onclick="photo(event)">
-    <h4>Retro</h4>
-    <p style="margin: 0px">Lorem ipsum dolor..</p>
-  </div>
-  </div>
-  <div class="column filter work" data-name="2">
-  <div class="content">
-  <img src="https://www.w3schools.com/w3images/cars2.jpg" alt="Car" style="width:100%" onclick="photo(event)">
-    <h4>Fast</h4>
-    <p style="margin: 0px">Lorem ipsum dolor..</p>
-  </div>
-  </div>
-  <div class="column filter work" data-name="4">
-  <div class="content">
-  <img src="https://www.w3schools.com/w3images/cars3.jpg" alt="Car" style="width:100%" onclick="photo(event)">
-    <h4>Classic</h4>
-    <p style="margin: 0px">Lorem ipsum dolor..</p>
-  </div>
-  </div>
 
-  <div class="column filter work" data-name="10">
-  <div class="content">
-    <img src="https://www.w3schools.com/w3images/people1.jpg" alt="Car" style="width:100%" onclick="photo(event)">
-    <h4>Girl</h4>
-    <p style="margin: 0px">Lorem ipsum dolor..</p>
-  </div>
-  </div>
-  <div class="column filter work" data-name="11">
-  <div class="content">
-  <img src="https://www.w3schools.com/w3images/people2.jpg" alt="Car" style="width:100%" onclick="photo(event)">
-    <h4>Man</h4>
-    <p style="margin: 0px">Lorem ipsum dolor..</p>
-  </div>
-  </div>
-  <div class="column filter work" data-name="7">
-  <div class="content">
-  <img src="https://www.w3schools.com/w3images/people3.jpg" alt="Car" style="width:100%" onclick="photo(event)">
-    <h4>Woman</h4>
-    <p style="margin: 0px">Lorem ipsum dolor..</p>
-  </div>
-  </div>
-  </div>
+  {% for file in site.static_files %}
+    {% if file.path contains "/assets/img/gallery/" %}
+      {% if file.extname == '.jpg' or file.extname == '.jpeg' or file.extname == '.JPG' or file.extname == '.JPEG' %}
+        {% assign filenameparts = file.path | split: "/" %}{% assign filename = filenameparts | last | replace: file.extname,"" %}
+        {% assign size = filename | size | minus: 2 %}
+        {% if filename contains "_n" %}
+        <div class="column filter nature">
+        {% else %}
+        <div class="column filter work">
+        {% endif %}
+        <div class="content">
+          <img src="{{ file.path }}" alt="{{ filename | slice: 0, size }}" style="width:100%" onclick="photo(event)">
+          <h4>{{ filename | slice: 0, size }}</h4>
+        </div>
+        </div>
+        {% endif %}
+    {% endif %}
+  {% endfor %}
+
+
 
 </div>
 
