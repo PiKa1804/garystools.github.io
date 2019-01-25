@@ -19,7 +19,7 @@ layout: default
   <div class="content">
     {{ post.content | strip_html | truncatewords: 50 }}
   </div>
-  <a href="{{ post.url }}" class="read-more-trigger">Read more</a>
+  <a href="{{ site.baseurl }}{{ post.url }}" class="read-more-trigger">Read more</a>
   </div>
 {% endfor %}
 </div>
@@ -37,7 +37,7 @@ layout: default
     {% if page == paginator.page %}
       <span class="webjeda">{{ page }}</span>
     {% elsif page == 1 %}
-      <a href="/">{{ page }}</a>
+      <a href="{{ site.baseurl}}/blog">{{ page }}</a>
     {% else %}
       <a href="{{ site.paginate_path | prepend: site.baseurl | replace: '//', '/' | replace: ':num', page }}">{{ page }}</a>
     {% endif %}
