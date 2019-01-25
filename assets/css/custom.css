@@ -153,8 +153,11 @@ body {
     height: 100vh;
     background-color: green;
     position: relative;
-    background: url(/garystools/assets/img/foto1.jpg) no-repeat 0 100%;
-    background-position: right;
+    background: url(/garystools/assets/img/foto1.jpg) no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
 }
 
 #scroll {
