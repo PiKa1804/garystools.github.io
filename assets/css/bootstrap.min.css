@@ -4,14 +4,7 @@
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
  */
 /*! normalize.css v3.0.3 | MIT License | github.com/necolas/normalize.css */
-@font-face {
-    font-family: FiraSans;
-    src: url(../fonts/FiraSans-Regular.ttf);
-}
-
-
 html {
-  font-family: FiraSans;
   -webkit-text-size-adjust: 100%;
   -ms-text-size-adjust: 100%
 }
@@ -111,7 +104,6 @@ pre {
 }
 
 code, kbd, pre, samp {
-  font-family: FiraSans;
   font-size: 1em
 }
 
@@ -1364,7 +1356,6 @@ html {
 }
 
 body {
-  font-family: FiraSans;
   font-size: 14px;
   line-height: 1.42857143;
   color: #333;
@@ -1372,7 +1363,6 @@ body {
 }
 
 button, input, select, textarea {
-  font-family: FiraSans;
   font-size: inherit;
   line-height: inherit
 }
@@ -1460,7 +1450,6 @@ hr {
 }
 
 .h1, .h2, .h3, .h4, .h5, .h6, h1, h2, h3, h4, h5, h6 {
-  font-family: FiraSans;
   line-height: 1.1;
   color: inherit
 }
@@ -1776,7 +1765,6 @@ address {
 }
 
 code, kbd, pre, samp {
-  font-family: FiraSans
 }
 
 code {
@@ -6417,7 +6405,6 @@ button.close {
   position: absolute;
   z-index: 1070;
   display: block;
-  font-family: FiraSans;
   font-size: 12px;
   font-style: normal;
   font-weight: 400;
@@ -6551,7 +6538,6 @@ button.close {
   display: none;
   max-width: 276px;
   padding: 1px;
-  font-family: FiraSans;
   font-size: 14px;
   font-style: normal;
   font-weight: 400;
